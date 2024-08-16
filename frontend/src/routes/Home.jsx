@@ -5,12 +5,12 @@ import { io } from "socket.io-client";
 import * as types from "../redux/appReducer/actionType";
 import { useDispatch } from "react-redux";
 
-const ENDPOINT = "http://localhost:5000";
+const END_POINT = process.env.REACT_APP_END_POINT;
 
 const Home = () => {
   const [socketConnected, setSocketConnected] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const socket = io(ENDPOINT);
+  const socket = io(END_POINT);
   const dispatch = useDispatch();
 
   useEffect(() => {
