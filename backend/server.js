@@ -38,7 +38,11 @@ const server = app.listen(
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "http://localhost:5000",
+    origin: [
+      "http://localhost:5000",
+      "http://localhost:3000",
+      "http://166.88.11.35:5000",
+    ],
   },
 });
 

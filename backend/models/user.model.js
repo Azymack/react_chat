@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema(
     pic: {
       type: String,
       required: true,
-      default: "http://localhost:5000/storage/avatar/default.jpg",
+      default: "default_avatar.jpg",
     },
   },
   {
