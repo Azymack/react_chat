@@ -13,6 +13,7 @@ dotenv.config();
 connectionDB();
 app.use(cors());
 
+app.use(express.static("build"));
 // for file and image access
 app.use("/storage", express.static(path.join(__dirname, "storage")));
 
@@ -37,7 +38,7 @@ const server = app.listen(
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "http://localhost:5000",
   },
 });
 
