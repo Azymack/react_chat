@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BsEmojiSmile, BsSendFill } from "react-icons/bs";
+import EmojiPicker from "emoji-picker-react";
 import Message from "./ChatBox/Mesaage";
 import ChatHeader from "./ChatBox/ChatHeader";
 import { useDispatch, useSelector } from "react-redux";
@@ -40,6 +41,9 @@ export default function ChatBox() {
   const webSocket = useSelector((state) => state.appReducer.webSocket);
 
   const [userInput, setUserInput] = useState("");
+  const [inputFocused, setInputFocused] = useState(false);
+  const [showEmoji, setShowEmoji] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleSendMessage = () => {
@@ -165,6 +169,10 @@ export default function ChatBox() {
             onChange={(e) => {
               setUserInput(e.target.value);
             }}
+            onFocus={() => {
+              setInputFocused(true);
+            }}
+            onMouse
             type="text"
             className="border border-gray-300 bg-primary-50 text-primary-900 font-semibold sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 pr-10 "
             placeholder="Type your message..."
@@ -173,7 +181,24 @@ export default function ChatBox() {
             type="button"
             className="absolute inset-y-0 right-10 px-8 py-2.7 text-primary-800 focus:outline-none"
           >
-            <BsEmojiSmile className="w-5 h-5" />
+            <div>
+              <div
+                className="z-10 fixed bottom-24 right-4"
+                onMouseLeave={() => setShowEmoji(false)}
+              >
+                <EmojiPicker
+                  open={showEmoji}
+                  onEmojiClick={(emoji) => {
+                    setUserInput(userInput + emoji.emoji);
+                    // console.log(emoji);
+                  }}
+                />
+              </div>
+              <BsEmojiSmile
+                className="w-5 h-5"
+                onClick={() => setShowEmoji(true)}
+              />
+            </div>
           </button>
           <button
             disabled={sendMessageProcessing}

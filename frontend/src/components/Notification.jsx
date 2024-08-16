@@ -31,10 +31,10 @@ export default function Notification() {
         className="bg-primary-800 text-white p-2 rounded-full hover:bg-primary-700 focus:outline-none"
         onClick={handleProfileClick}
       >
-        <span class="relative inline-block">
+        <span className="relative inline-block">
           <BiSolidBell className="w-6 h-6" />
           {notficationsMessages.length > 0 && (
-            <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+            <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
               {notficationsMessages.length}
             </span>
           )}
