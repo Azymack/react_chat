@@ -52,11 +52,18 @@ export default function ChatBox() {
       toast.warn("Write something to send", {
         position: toast.POSITION.BOTTOM_LEFT,
       });
-    } else if (
+    }
+    // else if (obj.content.search(/\b(?:phone|whatsapp)\b/i) != -1) {
+    //   toast.warn("You can't share phone numbers.", {
+    //     position: toast.POSITION.BOTTOM_LEFT,
+    //   });
+    // }
+    else if (
+      // check phone number
       obj.content
         .replaceAll(/[ ,._]/g, "")
         .replaceAll(/-/g, "")
-        .search(/\d{7,}/) != -1
+        .search(/\b\d{7,11}\b/) != -1
     ) {
       toast.warn("Please do not include phone numbers.", {
         position: toast.POSITION.BOTTOM_LEFT,

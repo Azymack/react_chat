@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const path = require("path");
 const connectionDB = require("./config/db");
 const userRoutes = require("./routes/user.routes");
 const chatRoutes = require("./routes/chat.routes");
@@ -11,6 +12,12 @@ const app = express();
 dotenv.config();
 connectionDB();
 app.use(cors());
+
+// for file and image access
+app.use("/storage", express.static(path.join(__dirname, "storage")));
+
+const fileUpload = require("express-fileupload");
+app.use(fileUpload());
 
 app.use(express.json());
 
