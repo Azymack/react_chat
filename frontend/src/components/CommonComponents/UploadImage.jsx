@@ -12,7 +12,7 @@ import AWS, { S3 } from "aws-sdk";
 // const uploadPreset = "upload_preset";
 
 export default function UploadImage({ handelFileUpload }) {
-  const END_POINT = "http://localhost:5000";
+  const END_POINT = process.env.REACT_APP_END_POINT;
   //   const accessKeyId = "BVMCH6HC9PVRWXC9H2KG";
   //   const secretAccessKey = "rahVBU5creMu5f9w6KGhoHz7O2Bs3Dc8aGdywqy3";
   //   const wasabiEndPoint = new AWS.Endpoint("s3.eu-west-1.wasabisys.com");

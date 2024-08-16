@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as types from "./actionType";
 
-const END_POINT = "http://localhost:5000";
+const END_POINT = process.env.REACT_APP_END_POINT;
 
 //  sign up user / create account
 const createAccount = (user) => async (dispatch) => {
