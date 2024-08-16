@@ -15,16 +15,16 @@ app.use(cors());
 
 app.use(express.static("build"));
 // for file and image access
-app.use("/storage", express.static(path.join(__dirname, "storage")));
+app.use("/storage", express.static("storage"));
 
 const fileUpload = require("express-fileupload");
 app.use(fileUpload());
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  console.log("welcome to chat app");
-});
+// app.get("/", (req, res) => {
+//   console.log("welcome to chat app");
+// });
 
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
@@ -66,4 +66,8 @@ io.on("connection", (socket) => {
       }
     });
   });
+});
+
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });

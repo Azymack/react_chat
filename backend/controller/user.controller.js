@@ -75,6 +75,7 @@ const authUser = asyncHandler(async (req, res) => {
 
 //  get list of all users
 const searchUser = asyncHandler(async (req, res) => {
+  console.log(req.query.search);
   const search = req.query.search
     ? {
         $or: [
