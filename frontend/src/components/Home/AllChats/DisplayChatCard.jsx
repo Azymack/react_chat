@@ -6,6 +6,7 @@ import {
 } from "../../../redux/appReducer/action";
 
 const DisplayChatCard = ({ item }) => {
+  console.log(item);
   const webSocket = useSelector((state) => state.appReducer.webSocket);
   const parsedData = JSON.parse(
     localStorage.getItem("chat-app-login-user-data")
@@ -48,10 +49,10 @@ const DisplayChatCard = ({ item }) => {
               ? item.latestMessage.message.startsWith(
                   `${process.env.REACT_APP_END_POINT}/storage/file`
                 )
-                ? item.lastMessage.message.split("/")[
-                    item.lastMessage.message.split("/").length - 1
+                ? item.latestMessage.message.split("/")[
+                    item.latestMessage.message.split("/").length - 1
                   ]
-                : item.lastMessage.message
+                : item.latestMessage.message
               : ""}
           </p>
         </div>
