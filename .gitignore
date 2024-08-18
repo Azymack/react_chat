@@ -24,8 +24,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # storage
-avatar/*
-file/*
+avatar/
+file/
 !avatar/.gitkeep
 !file/.gitkeep
 
