@@ -1,0 +1,38 @@
+I have 7+ experience in web application development, blockchain technology, and smart contract implementation.
+I specialize in front-end technologies such as React, Angular, and Vue.js, and back-end frameworks including Node.js, Express.js, and Django. 
+My expertise extends to Bitcoin Core, where I manage transactions, configure nodes, and integrate wallet functionalities. 
+In the realm of smart contracts, I develop and deploy solutions on Ethereum, Solana, and Binance Smart Chain using Solidity, Vyper, and Rust. My work includes comprehensive security audits and performance optimization to ensure robust and secure contract functionality.
+I also excel in API development and integration, adhering to RESTful and GraphQL standards, and manage DevOps practices with Docker for containerization, Kubernetes for orchestration, and CI/CD pipelines using Jenkins and GitHub Actions.
+
+What I have been doing:
+
+- Web Application Development: React, Angular, Node.js, Django and ASP.NET
+- Blockchain Integration: Integration of Bitcoin Core, Bitcoin Layer 2 for transaction processing and wallet management.
+- Smart Contract Development: Development and deployment of smart contracts on Ethereum, Solana and Binance Smart Chain using Solidity, Vyper and Rust, including security audits and performance optimization.
+- API Development and Integration: API development and integration with RESTful and GraphQL standards.
+- DevOps and Infrastructure: Containerization with Docker, orchestration with Kubernetes, and CI/CD pipeline implementation with Jenkins and GitHub Actions.
+
+Throughout my career, I have focused on ensuring projects reach successful launches and clients’ ideas are effectively realized. While my technical skills are integral, my priority is always on delivering functional and impactful results. I aim to apply this approach to your projects on Upwork.
+
+Thanks for viewing my profile.
+
+---------------------------------------------
+
+I am a Full-Stack AI Engineer with over 7 years of experience specializing in web development and artificial intelligence. My work integrates advanced AI models with robust web applications to deliver functional and efficient solutions.
+
+Expertise & Technologies:
+- Web Development: Proficient in React and Angular for front-end development, and Node.js with Express.js, .NET for back-end services. Experienced with full-stack Python development.
+
+- AI & Machine Learning: Skilled in developing AI models using TensorFlow, PyTorch, Scikit-learn and leveraging third-parth services. Focus areas include predictive analytics, natural language processing, and computer vision.
+
+- Data Engineering: Expertise in managing large datasets and building data pipelines with Pandas, Apache Spark, and SQL databases.
+
+- DevOps & Cloud: Experienced in containerization with Docker and orchestration with Kubernetes. Proficient with cloud platforms AWS and Azure, and CI/CD pipelines using Jenkins and GitHub Actions.
+
+My focus is on leveraging technical expertise to deliver effective solutions and drive business outcomes.
+
+Hope to work with you.
+Thanks.
+
+
+
