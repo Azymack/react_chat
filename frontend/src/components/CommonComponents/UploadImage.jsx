@@ -70,7 +70,6 @@ export default function UploadImage({ handelFileUpload }) {
           position: toast.POSITION.BOTTOM_LEFT,
         });
       } catch (error) {
-        console.error("Upload error:", error);
         toast.error("Image upload failed. Please try again.", {
           position: toast.POSITION.BOTTOM_LEFT,
         });

@@ -33,7 +33,7 @@ app.use("/api/message", messageRoutes);
 const port = process.env.PORT || 5000;
 const server = app.listen(
   port,
-  console.log("server is running at post = ", port)
+  console.log("server is running at port = ", port)
 );
 
 const io = require("socket.io")(server, {

@@ -1,4 +1,7 @@
 import React from "react";
+import { BsDownload } from "react-icons/bs";
+import fileDownload from "js-file-download";
+import axios from "axios";
 
 export default function Message({ item }) {
   const parsedData = JSON.parse(
@@ -33,7 +36,34 @@ export default function Message({ item }) {
             }`}
             data-kt-element="message-text"
           >
-            {item.message}
+            {item.message.startsWith(
+              `${process.env.REACT_APP_END_POINT}/storage/file`
+            ) ? (
+              <span className="flex items-center gap-4">
+                <span className="underline">
+                  {item.message.split("/")[item.message.split("/").length - 1]}
+                </span>
+                <BsDownload
+                  className="cursor-pointer"
+                  onClick={() => {
+                    axios
+                      .get(item.message, {
+                        responseType: "blob",
+                      })
+                      .then((res) => {
+                        fileDownload(
+                          res.data,
+                          item.message.split("/")[
+                            item.message.split("/").length - 1
+                          ]
+                        );
+                      });
+                  }}
+                />
+              </span>
+            ) : (
+              item.message
+            )}
           </div>
           {/* Time */}
           <span className="text-primary-50 text-xs px-1 ">{createdAt}</span>
