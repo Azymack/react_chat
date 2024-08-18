@@ -48,7 +48,9 @@ const DisplayChatCard = ({ item }) => {
               ? item.latestMessage.message.startsWith(
                   `${process.env.REACT_APP_END_POINT}/storage/file`
                 )
-                ? item.message.split("/")[item.message.split("/").length - 1]
+                ? item.lastMessage.message.split("/")[
+                    item.lastMessage.message.split("/").length - 1
+                  ]
                 : item.lastMessage.message
               : ""}
           </p>
