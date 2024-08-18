@@ -89,21 +89,34 @@ export default function ChatBox() {
     };
     if (filePath) {
       obj.content = filePath;
+      dispatch(sendMessage(obj));
     } else {
       obj.content = userInput.trim();
+
+      if (!obj.content) {
+        toast.warn("Write something to send", {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
+      } else if (
+        // check phone number
+        obj.content
+          .replaceAll(/[ ,._]/g, "")
+          .replaceAll(/-/g, "")
+          .search(/\b\d{7,11}\b/) != -1
+      ) {
+        toast.warn("Please do not include phone numbers.", {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
+      } else {
+        dispatch(sendMessage(obj));
+      }
     }
 
     if (!obj.content) {
       toast.warn("Write something to send", {
         position: toast.POSITION.BOTTOM_LEFT,
       });
-    }
-    // else if (obj.content.search(/\b(?:phone|whatsapp)\b/i) != -1) {
-    //   toast.warn("You can't share phone numbers.", {
-    //     position: toast.POSITION.BOTTOM_LEFT,
-    //   });
-    // }
-    else if (
+    } else if (
       // check phone number
       obj.content
         .replaceAll(/[ ,._]/g, "")
