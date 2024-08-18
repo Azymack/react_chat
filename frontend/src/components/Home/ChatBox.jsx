@@ -111,24 +111,6 @@ export default function ChatBox() {
         dispatch(sendMessage(obj));
       }
     }
-
-    if (!obj.content) {
-      toast.warn("Write something to send", {
-        position: toast.POSITION.BOTTOM_LEFT,
-      });
-    } else if (
-      // check phone number
-      obj.content
-        .replaceAll(/[ ,._]/g, "")
-        .replaceAll(/-/g, "")
-        .search(/\b\d{7,11}\b/) != -1
-    ) {
-      toast.warn("Please do not include phone numbers.", {
-        position: toast.POSITION.BOTTOM_LEFT,
-      });
-    } else {
-      dispatch(sendMessage(obj));
-    }
   };
 
   useEffect(() => {
