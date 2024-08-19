@@ -47,12 +47,22 @@ const accessChat = async (req, res) => {
 
 // get chat
 const getChats = async (req, res) => {
+  const superUser = process.env.SUPER_USER;
   try {
-    const chats = await Chat.find({
-      users: { $elemMatch: { $eq: req.user._id } },
-    })
-      .populate("users", "pic email name _id") // Populate the 'users' field with only the specified fields
-      .populate("latestMessage"); // Populate the 'latestMessage' field
+    console.log(req.user.email, superUser);
+    const chats =
+      req.user.email == superUser
+        ? await Chat
+            .find
+            // users: { $elemMatch: { $eq: req.user._id } },
+            ()
+            .populate("users", "pic email name _id") // Populate the 'users' field with only the specified fields
+            .populate("latestMessage")
+        : await Chat.find({
+            users: { $elemMatch: { $eq: req.user._id } },
+          })
+            .populate("users", "pic email name _id") // Populate the 'users' field with only the specified fields
+            .populate("latestMessage"); // Populate the 'latestMessage' field
 
     if (chats.length === 0) {
       return res.status(422).json({ message: "No chats found." });

@@ -3,7 +3,6 @@ const Message = require("../models/message.model");
 const User = require("../models/user.model");
 const Chat = require("../models/chat.model");
 
-
 // send messages
 const sendMessage = asyncHandler(async (req, res) => {
   const { content, chatId } = req.body;
@@ -19,6 +18,13 @@ const sendMessage = asyncHandler(async (req, res) => {
   };
 
   try {
+    const superUser = process.env.SUPER_USER;
+    if (req.user.email == superUser) {
+      return res.status(401).json({
+        error: "Superuser can't send msg.",
+      });
+    }
+
     let message = await Message.create(messageObj);
 
     message = await message.populate("sender", "name pic");
@@ -38,9 +44,10 @@ const sendMessage = asyncHandler(async (req, res) => {
 
 // get messages
 const getMessages = asyncHandler(async (req, res) => {
-
-  if(!req.params.id){
-    return res.status(500).json({ error: "Invalid or chatId not found in params." });
+  if (!req.params.id) {
+    return res
+      .status(500)
+      .json({ error: "Invalid or chatId not found in params." });
   }
 
   try {
@@ -48,11 +55,10 @@ const getMessages = asyncHandler(async (req, res) => {
       .populate("sender", "name pic email")
       .populate("chat");
 
-      res.json(messages);
-
-    } catch (error) {
-      return res.status(500).json({ error: error.message });
+    res.json(messages);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
   }
 });
 
-module.exports = { sendMessage , getMessages};
+module.exports = { sendMessage, getMessages };
