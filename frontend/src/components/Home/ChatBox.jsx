@@ -262,7 +262,6 @@ export default function ChatBox() {
               id="fileUploadInput"
               className="hidden"
               onChange={(e) => {
-                console.log("sdf");
                 setFileInput(e.target.files[0]);
                 handleFileInput();
               }}

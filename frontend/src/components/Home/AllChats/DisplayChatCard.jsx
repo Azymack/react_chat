@@ -6,7 +6,6 @@ import {
 } from "../../../redux/appReducer/action";
 
 const DisplayChatCard = ({ item }) => {
-  console.log(item);
   const webSocket = useSelector((state) => state.appReducer.webSocket);
   const parsedData = JSON.parse(
     localStorage.getItem("chat-app-login-user-data")
