@@ -49,7 +49,6 @@ const accessChat = async (req, res) => {
 const getChats = async (req, res) => {
   const superUser = process.env.SUPER_USER;
   try {
-    console.log(req.user.email, superUser);
     const chats =
       req.user.email == superUser
         ? await Chat
