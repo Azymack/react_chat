@@ -107,6 +107,10 @@ export default function ChatBox() {
         toast.warn("Please do not include phone numbers.", {
           position: toast.POSITION.BOTTOM_LEFT,
         });
+      } else if (obj.content.includes("Akademijouren")) {
+        toast.warn("Using word Akademijouren is not allowed.", {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
       } else {
         dispatch(sendMessage(obj));
       }
