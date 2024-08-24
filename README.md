@@ -4,6 +4,8 @@ Welcome to the Chat Application! This is a full-stack project built using React.
 
 ## Features
 
+asd
+
 - **User Authentication**: Users can sign up for an account, log in, and log out securely.
 - **Profile Customization**: Users can personalize their profiles by changing their profile images.
 - **User Search**: Users can search for other users to connect with.
