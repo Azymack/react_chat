@@ -1,4 +1,4 @@
-# Chat Application
+# Chat App
 
 Welcome to the Chat Application! This is a full-stack project built using React.js, Node.js, Express.js, MongoDB, Tailwind CSS, and Redux. The application provides an intuitive and user-friendly interface for users to engage in real-time conversations with others. It incorporates a range of features such as sign up, sign in, logout, profile image customization, user search, one-to-one chat, group creation, group chat, group administration, and message notifications.
 
