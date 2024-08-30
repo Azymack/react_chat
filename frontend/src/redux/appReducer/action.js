@@ -159,18 +159,21 @@ const getMessage = (id) => async (dispatch) => {
 const setWebSocketReceivedMessage =
   (allMessages, receivedMessage, notificationsMessages, selectedUserForChat) =>
   async (dispatch) => {
+    let senderName = receivedMessage.sender.name;
     if (!selectedUserForChat) {
       if (notificationsMessages && notificationsMessages.length >= 1) {
         const isAlreadyReceivedNotification = notificationsMessages.some(
           (message) => message._id === receivedMessage.chat._id
         );
         if (!isAlreadyReceivedNotification) {
+          showNotification(senderName);
           dispatch({
             type: types.WEB_SOCKET_NOTIFICATION_RECEIVED,
             payload: receivedMessage,
           });
         }
       } else {
+        showNotification(senderName);
         dispatch({
           type: types.WEB_SOCKET_NOTIFICATION_RECEIVED,
           payload: receivedMessage,
@@ -198,12 +201,14 @@ const setWebSocketReceivedMessage =
             (message) => message._id === receivedMessage.chat._id
           );
           if (!isAlreadyReceivedNotification) {
+            showNotification(senderName);
             dispatch({
               type: types.WEB_SOCKET_NOTIFICATION_RECEIVED,
               payload: receivedMessage,
             });
           }
         } else {
+          showNotification(senderName);
           dispatch({
             type: types.WEB_SOCKET_NOTIFICATION_RECEIVED,
             payload: receivedMessage,
@@ -222,12 +227,14 @@ const setWebSocketReceivedMessage =
             (message) => message._id === receivedMessage.chat._id
           );
           if (!isAlreadyReceivedNotification) {
+            showNotification(senderName);
             dispatch({
               type: types.WEB_SOCKET_NOTIFICATION_RECEIVED,
               payload: receivedMessage,
             });
           }
         } else {
+          showNotification(senderName);
           dispatch({
             type: types.WEB_SOCKET_NOTIFICATION_RECEIVED,
             payload: receivedMessage,
@@ -284,6 +291,14 @@ const removeMembersFromGroup = (obj) => async (dispatch) => {
     console.log(error);
 
     dispatch({ type: types.REMOVE_MEMBER_FROM_GROUP_REQUEST_FAIL });
+  }
+};
+
+const showNotification = (senderName) => {
+  if (Notification.permission === "granted") {
+    new Notification("Wribbler", {
+      body: `New message from ${senderName}`,
+    });
   }
 };
 
