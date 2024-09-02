@@ -295,11 +295,16 @@ const removeMembersFromGroup = (obj) => async (dispatch) => {
 };
 
 const showNotification = (senderName) => {
-  if (Notification.permission === "granted") {
-    new Notification("Wribbler", {
-      body: `New message from ${senderName}`,
-    });
-  }
+  navigator.serviceWorker.register("sw.js");
+  Notification.requestPermission(function (result) {
+    if (result === "granted") {
+      navigator.serviceWorker.ready.then(function (registration) {
+        registration.showNotification("Wribbler", {
+          body: `New message from ${senderName}`,
+        });
+      });
+    }
+  });
 };
 
 export {
